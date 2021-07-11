@@ -1,19 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Company Archive">
-    <meta name="author" content="Jatinder Singh">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Company Archive</title>
-
-    <link rel="stylesheet" href="libs/css/style.css">
-        
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Company Archive">
+  <meta name="author" content="Jatinder Singh">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Archive</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" /></noscript>
+  <link rel="stylesheet" href="libs/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="libs/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="libs/css/style.css" media="all" />
 </head>
+
 <body>
-    <!-- Script -->
-    <script src="libs/js/script.js"></script>
+
+    <header class="header">
+        <div class="header-top full-border">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-auto text-md-left text-center">
+                        <a class="logo" href="index.html">
+                            <span class="logo_text">Company Archive</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search_bar">
+            <div class="container-fluid">
+                <div class="nav_block row align-items-center">
+                    <div class="col-lg">
+                        <div class="product_search_form rounded_input">
+                            <button class="search_toggle closeSearch d-lg-none">&times;</button>
+                            <form class="search_form">
+                                <div class="input-group">
+                                    <div class="all_category custom_select dropdown">
+                                        <label class="dropdown-toggle" data-toggle="dropdown">Departments <i class="fa fa-angle-down"></i></label>
+                                        <div class="dropdown-menu">
+                                          <ul class="cat-menu">
+                                            <li><a>Legal</a></li>
+                                            <li><a>Sales</a></li>
+                                            <li><a>Services</a></li>
+                                          </ul>
+                                      </div>
+                                    </div>
+                                    <div class="all_category custom_select dropdown">
+                                        <label class="dropdown-toggle" data-toggle="dropdown">Locations <i class="fa fa-angle-down"></i></label>
+                                        <div class="dropdown-menu">
+                                          <ul class="cat-menu">
+                                            <li><a>London</a></li>
+                                            <li><a>India</a></li>
+                                            <li><a>Paris</a></li>
+                                          </ul>
+                                      </div>
+                                    </div>
+                                    <input class="form-control" placeholder="Search your product here..." required="" type="text">
+                                    <button type="submit" class="search_btn2"><i class="fa fa-search"></i> Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="col-auto">
+                        <ul class="navbar_right list-unstyled inline">
+                            <li><a class="search_toggle d-lg-none nav-link"><i class="fa fa-sliders"></i></a></li>
+                            <li><a href="departments.html" class="nav-link"><i class="fa fa-sitemap"></i> Departments</a></li>
+                            <li><a href="location.html" class="nav-link"><i class="fa fa-map-marker"></i> Locations</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    
+    
+    
+    <section class="main_wraper main">
+        <div class="container-fluid px-0">
+            <div class="row mx-0">
+                <div class="col-md-auto px-0 user_list_wrap">
+                    <div class="top_head">
+                        <h3>Personnel(26)</h3>
+                        <a class="btn theme-btn" href="add-user.html"><i class="fa fa-plus"></i> Add New</a>
+                    </div>
+                    <div class="user_list">
+                        
+                        <a class="user_item active" href="#">
+                            <span class="img_text bg-secondary">AC</span>
+                            <div class="info">
+                                <span class="name">Anitra Coleridge</span>
+                                <span class="user_email">acoleridgey@nbcnews.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-info">CD</span>
+                            <div class="info">
+                                <span class="name">Christina Denge</span>
+                                <span class="user_email">cdenge22@canalblog.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-success">DP</span>
+                            <div class="info">
+                                <span class="name">Darryl Pool</span>
+                                <span class="user_email">darrylPool@nbcnews.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-warning">AC</span>
+                            <div class="info">
+                                <span class="name">Gay Bickford</span>
+                                <span class="user_email">gaybickford@gmail.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-danger">AC</span>
+                            <div class="info">
+                                <span class="name">Anitra Coleridge</span>
+                                <span class="user_email">acoleridgey@nbcnews.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-primary">CD</span>
+                            <div class="info">
+                                <span class="name">Christina Denge</span>
+                                <span class="user_email">cdenge22@canalblog.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-secondary">AC</span>
+                            <div class="info">
+                                <span class="name">Anitra Coleridge</span>
+                                <span class="user_email">acoleridgey@nbcnews.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-info">CD</span>
+                            <div class="info">
+                                <span class="name">Christina Denge</span>
+                                <span class="user_email">cdenge22@canalblog.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-success">DP</span>
+                            <div class="info">
+                                <span class="name">Darryl Pool</span>
+                                <span class="user_email">darrylPool@nbcnews.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-warning">AC</span>
+                            <div class="info">
+                                <span class="name">Gay Bickford</span>
+                                <span class="user_email">gaybickford@gmail.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-danger">AC</span>
+                            <div class="info">
+                                <span class="name">Anitra Coleridge</span>
+                                <span class="user_email">acoleridgey@nbcnews.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-primary">CD</span>
+                            <div class="info">
+                                <span class="name">Christina Denge</span>
+                                <span class="user_email">cdenge22@canalblog.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-secondary">AC</span>
+                            <div class="info">
+                                <span class="name">Anitra Coleridge</span>
+                                <span class="user_email">acoleridgey@nbcnews.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-info">CD</span>
+                            <div class="info">
+                                <span class="name">Christina Denge</span>
+                                <span class="user_email">cdenge22@canalblog.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-success">DP</span>
+                            <div class="info">
+                                <span class="name">Darryl Pool</span>
+                                <span class="user_email">darrylPool@nbcnews.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-warning">AC</span>
+                            <div class="info">
+                                <span class="name">Gay Bickford</span>
+                                <span class="user_email">gaybickford@gmail.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-danger">AC</span>
+                            <div class="info">
+                                <span class="name">Anitra Coleridge</span>
+                                <span class="user_email">acoleridgey@nbcnews.com</span>
+                            </div>
+                        </a>
+                        <a class="user_item" href="#">
+                            <span class="img_text bg-primary">CD</span>
+                            <div class="info">
+                                <span class="name">Christina Denge</span>
+                                <span class="user_email">cdenge22@canalblog.com</span>
+                            </div>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+                <div class="col-md user_content_wrap">
+                    <a class="backList d-md-none"><i class="fa fa-angle-left"></i> Back</a>
+                    <div class="content">
+                        <div class="info_head row align-items-center mb-5">
+                            <div class="col-auto"><span class="img_text bg-secondary">AC</span></div>
+                            <div class="col info">
+                                <h2 class="name">Anitra Coleridge</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h3>Employee job information</h3>
+                                <div class="info-group">
+                                    <label class="label">Department</label>
+                                    <div class="info-field">Research and Development</div>
+                                </div>
+                                <div class="info-group">
+                                    <label class="label">Location</label>
+                                    <div class="info-field">Paris</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3>Contact</h3>
+                                <div class="info-group">
+                                    <label class="label">Email</label>
+                                    <div class="info-field">acoleridgey@nbcnews.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="editBtn text-md-right text-center mt-5">
+                            <a class="btn theme-btn bg-danger" href="#"><i class="fa fa-trash-o"></i> Delete</a>
+                            <a class="btn theme-btn editProfile ml-4" href="#"><i class="fa fa-pencil"></i> Edit Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    
+    
+   
+
+    
+
+  <script src="libs/js/jquery-3.4.1.min.js"></script>
+  <script src="libs/js/popper.min.js"></script>
+  <script src="libs/js/bootstrap.min.js"></script>
+  <script src="libs/js/script.js"></script>
+    
+  <script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        $(".user_item").on('click', function(){
+           $(".user_content_wrap").addClass("open"); 
+        });
+        $(".backList").on('click', function(){
+           $(".user_content_wrap").removeClass("open"); 
+        });
+        
+        $(".search_toggle").on('click', function(){
+           $(".product_search_form").toggleClass("open"); 
+        });
+        
+    });
+  </script>
+    
 </body>
+
 </html>
