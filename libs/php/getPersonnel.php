@@ -50,9 +50,9 @@
 		if($_REQUEST['keywords']){
 			$query .= ' AND (firstName LIKE "%'.$_REQUEST['keywords'].'%" OR lastName LIKE "%'.$_REQUEST['keywords'].'%")';
 		}	
-		$query .= ' ORDER BY id desc';
+		$query .= ' ORDER BY firstName asc';
 	}else{
-		$query = 'SELECT * from personnel ORDER BY id desc';
+		$query = 'SELECT * from personnel ORDER BY firstName asc';
 	}
 
 	$result = $conn->query($query);
