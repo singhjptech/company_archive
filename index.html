@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,29 +37,20 @@
                     <div class="col-lg">
                         <div class="product_search_form rounded_input">
                             <button class="search_toggle closeSearch d-lg-none">&times;</button>
-                            <form class="search_form">
+                            <form class="search_form" name="search_listing" id="search_listing" method="POST" action="libs/php/getPersonnel.php">
+                                <input type="hidden" name="action" value="search">
                                 <div class="input-group">
-                                    <div class="all_category custom_select dropdown">
-                                        <label class="dropdown-toggle" data-toggle="dropdown">Departments <i class="fa fa-angle-down"></i></label>
-                                        <div class="dropdown-menu">
-                                          <ul class="cat-menu">
-                                            <li><a>Legal</a></li>
-                                            <li><a>Sales</a></li>
-                                            <li><a>Services</a></li>
-                                          </ul>
-                                      </div>
+                                    <div class="all_category custom_select dropdown col-lg-3">                                      
+                                          <select class="cat-menu form-control emp_department" name="sdepartment">
+                                            <option value="0">Departments</option>
+                                          </select>
                                     </div>
-                                    <div class="all_category custom_select dropdown">
-                                        <label class="dropdown-toggle" data-toggle="dropdown">Locations <i class="fa fa-angle-down"></i></label>
-                                        <div class="dropdown-menu">
-                                          <ul class="cat-menu">
-                                            <li><a>London</a></li>
-                                            <li><a>India</a></li>
-                                            <li><a>Paris</a></li>
-                                          </ul>
-                                      </div>
+                                    <div class="all_category custom_select dropdown col-lg-3">
+                                          <select class="cat-menu form-control dep_loc_list" name="slocation">
+                                            <option value="0">Locations</option>
+                                          </select>
                                     </div>
-                                    <input class="form-control" placeholder="Search your product here..." required="" type="text">
+                                    <input class="form-control" name="keywords" id="keywords" placeholder="Search your product here..." type="text">
                                     <button type="submit" class="search_btn2"><i class="fa fa-search"></i> Search</button>
                                 </div>
                             </form>
@@ -68,8 +60,8 @@
                     <div class="col-auto">
                         <ul class="navbar_right list-unstyled inline">
                             <li><a class="search_toggle d-lg-none nav-link"><i class="fa fa-sliders"></i></a></li>
-                            <li><a href="departments.html" class="nav-link"><i class="fa fa-sitemap"></i> Departments</a></li>
-                            <li><a href="location.html" class="nav-link"><i class="fa fa-map-marker"></i> Locations</a></li>
+                            <li><a href="javascript:void(0)" class="nav-link common-action" data-section="department-section"><i class="fa fa-sitemap"></i> Departments</a></li>
+                            <li><a href="javascript:void(0)" class="nav-link common-action" data-section="location-section"><i class="fa fa-map-marker"></i> Locations</a></li>
                         </ul>
                     </div>
                 </div>
@@ -77,219 +69,308 @@
         </div>
     </header>
     
-    
-    
-    
     <section class="main_wraper main">
         <div class="container-fluid px-0">
             <div class="row mx-0">
                 <div class="col-md-auto px-0 user_list_wrap">
                     <div class="top_head">
-                        <h3>Personnel(26)</h3>
-                        <a class="btn theme-btn" href="add-user.html"><i class="fa fa-plus"></i> Add New</a>
+                        <h3 class="emp_count">Personnel(26)</h3>
+                        <a class="btn theme-btn common-action" data-section="add_emp_section" href="javascript:void(0)"><i class="fa fa-plus"></i> Add New</a>
                     </div>
                     <div class="user_list">
-                        
-                        <a class="user_item active" href="#">
-                            <span class="img_text bg-secondary">AC</span>
-                            <div class="info">
-                                <span class="name">Anitra Coleridge</span>
-                                <span class="user_email">acoleridgey@nbcnews.com</span>
+                    </div>
+                </div>
+
+                <div class="col-md user_content_wrap edit_emp_section common-sections">
+                    <a class="backList d-md-none"><i class="fa fa-angle-left"></i> Back</a>
+                    <div class="content">
+                        <div class="info_head row align-items-center mb-5">
+                            <div class="col-auto"><span class="img_text bg-secondary etitlewords">AC</span></div>
+                            <div class="col info">
+                                <h2 class="ename">Anitra Coleridge</h2>
                             </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-info">CD</span>
-                            <div class="info">
-                                <span class="name">Christina Denge</span>
-                                <span class="user_email">cdenge22@canalblog.com</span>
+                        </div>
+                        <form name="edit_emp_form" id="edit_emp_form" method="POST" action="libs/php/employeeEditDelete.php">
+                            <input type="hidden" name="action" value="edit_emp">
+                            <input type="hidden" name="emp_id" id="emp_id">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h3>Employee job information</h3>
+                                    <div class="info-group">
+                                        <label class="label">First Name</label>
+                                        <input type="text" class="form-control" name="efirst_name" id="efirst_name" value="" readonly="">
+                                    </div>
+                                    <div class="info-group">
+                                        <label class="label">Last Name</label>
+                                        <input type="text" class="form-control" name="elast_name" id="elast_name" value="" readonly="">
+                                    </div>
+                                    <div class="info-group">
+                                        <label class="label">Job Information</label>
+                                        <input type="text" class="form-control" name="ejob_information" id="ejob_information" value="" readonly="">
+                                    </div>
+                                    <div class="info-group">
+                                        <label class="label">Department</label>
+                                        <select class="form-control emp_department" name="emp_department" id="edep" disabled="">
+                                            <option value="0">---- Please Select ----</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h3>Contact</h3>
+                                    <div class="info-group">
+                                        <label class="label">Email</label>
+                                        <input type="text" class="form-control" name="eemail" id="eemail" value="" readonly="">
+                                    </div>
+                                </div>
                             </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-success">DP</span>
-                            <div class="info">
-                                <span class="name">Darryl Pool</span>
-                                <span class="user_email">darrylPool@nbcnews.com</span>
+                            <div class="editBtn text-md-right text-center mt-5">
+                                <a class="btn theme-btn bg-danger delete-emp" href="javascript:void(0);"><i class="fa fa-trash-o"></i> Delete</a>
+                                <a class="btn theme-btn editProfile ml-4" href="javascript:void(0);"><i class="fa fa-pencil"></i> Edit Profile</a>
+                                <button class="btn theme-btn updateProfile ml-4" href="#" style="display: none;"><i class="fa fa-pencil"></i> Update Profile</button>
                             </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-warning">AC</span>
-                            <div class="info">
-                                <span class="name">Gay Bickford</span>
-                                <span class="user_email">gaybickford@gmail.com</span>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md user_content_wrap open add_emp_section common-sections" style="display: none;">
+                    <a class="backList d-md-none"><i class="fa fa-angle-left"></i> Back</a>
+                    <div class="content">
+                        <div class="info_head row align-items-center mb-5">
+                            <div class="col-auto"><span class="img_text bg-secondary"><i class="fa fa-user-o"></i></span></div>
+                            <div class="col info">
+                                <h2 class="name">Add Employee Data</h2>
                             </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-danger">AC</span>
-                            <div class="info">
-                                <span class="name">Anitra Coleridge</span>
-                                <span class="user_email">acoleridgey@nbcnews.com</span>
+                        </div>
+                        <form name="add_emp_form" id="add_emp_form" method="POST" action="libs/php/employeeEditDelete.php">
+                            <input type="hidden" name="action" value="add_emp">
+                            <div class="adduser_form">
+                                <div class="column personal_info">
+                                    <h3>Employee Name</h3>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="info-group">
+                                                <label class="label">First Name</label>
+                                                <input class="form-control" type="text" name="first_name" placeholder="First Name" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="info-group">
+                                                <label class="label">Last Name</label>
+                                                <input class="form-control" type="text" name="last_name" placeholder="Last Name" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column contact_info">
+                                    <h3>Contact</h3>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="info-group">
+                                                <label class="label">Email</label>
+                                                <input class="form-control" type="text" name="email" placeholder="Email" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="column job_info">
+                                    <h3>Job Information</h3>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="info-group">
+                                                <label class="label">Job Title(Optional)</label>
+                                                <input class="form-control" type="text" name="job_title" placeholder="Job Title" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="info-group">
+                                                <label class="label">Department</label>
+                                                <select class="form-control emp_department" name="department">
+                                                    <option value="0">Open to select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="editBtn text-md-right text-center mt-5">
+                                    <a class="btn theme-btn bg-secondary" href="#">Cancel</a>
+                                    <input type="submit" name="add-employee" id="add-employee" class="btn theme-btn ml-4" value="Add Employee">
+                                </div>
                             </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-primary">CD</span>
-                            <div class="info">
-                                <span class="name">Christina Denge</span>
-                                <span class="user_email">cdenge22@canalblog.com</span>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md user_content_wrap open department-section common-sections" style="display: none;">
+                    <a class="backList d-md-none"><i class="fa fa-angle-left"></i> Back</a>
+
+                    <form name="add_dep_form" id="add_dep_form" method="POST" action="libs/php/departmentEditDelete.php" >
+                        <input type="hidden" name="action" value="add_dep">
+                        <div class="content createDepartment mb-4">
+                            <h3>Create Department:</h3>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="info-group">
+                                        <label class="label">Department name</label>
+                                        <input class="form-control" type="text" name="department_name" placeholder="Department name" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="info-group">
+                                        <label class="label">Location</label>
+                                        <select class="form-control dep_loc_list" name="dep_location">
+                                            <option value="0">Open to select</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-secondary">AC</span>
-                            <div class="info">
-                                <span class="name">Anitra Coleridge</span>
-                                <span class="user_email">acoleridgey@nbcnews.com</span>
+                            <div class="editBtn mt-5">
+                                <a class="btn theme-btn bg-secondary" href="#">Cancel</a>
+                                <button class="btn theme-btn ml-4">Create Department</button>
                             </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-info">CD</span>
-                            <div class="info">
-                                <span class="name">Christina Denge</span>
-                                <span class="user_email">cdenge22@canalblog.com</span>
+                        </div>
+                    </form>
+
+                    <form name="edit_dep_form" id="edit_dep_form" method="POST" action="libs/php/departmentEditDelete.php">
+                        <input type="hidden" name="action" value="edit_dep">
+                        <input type="hidden" name="dep_id" id="dep_id" value="">
+                        <div class="content createDepartment mb-4">
+                            <h3>Edit Department:</h3>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="info-group">
+                                        <label class="label">Department name</label>
+                                        <input class="form-control" type="text" name="edepartment_name" id="edepartment_name" placeholder="Department name" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="info-group">
+                                        <label class="label">Location</label>
+                                        <select class="form-control dep_loc_list" name="edep_location" id="edep_location">
+                                            <option value="0">Open to select</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-success">DP</span>
-                            <div class="info">
-                                <span class="name">Darryl Pool</span>
-                                <span class="user_email">darrylPool@nbcnews.com</span>
+                            <div class="editBtn mt-5">
+                                <button class="btn theme-btn ml-4">Update Department</button>
                             </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-warning">AC</span>
-                            <div class="info">
-                                <span class="name">Gay Bickford</span>
-                                <span class="user_email">gaybickford@gmail.com</span>
+                        </div>
+                    </form>
+
+                    <div class="content">
+                        <div class="info_head row align-items-center mb-5">
+                            <div class="col-auto"><span class="img_text bg-info"><i class="fa fa-sitemap"></i></span></div>
+                            <div class="col info">
+                                <h2 class="name">Departments</h2>
                             </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-danger">AC</span>
-                            <div class="info">
-                                <span class="name">Anitra Coleridge</span>
-                                <span class="user_email">acoleridgey@nbcnews.com</span>
+                            <div class="col-auto">
+                                <a class="btn theme-btn add-dep" href="javascript:void(0);"><i class="fa fa-plus"></i> Add New</a>
                             </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-primary">CD</span>
-                            <div class="info">
-                                <span class="name">Christina Denge</span>
-                                <span class="user_email">cdenge22@canalblog.com</span>
-                            </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-secondary">AC</span>
-                            <div class="info">
-                                <span class="name">Anitra Coleridge</span>
-                                <span class="user_email">acoleridgey@nbcnews.com</span>
-                            </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-info">CD</span>
-                            <div class="info">
-                                <span class="name">Christina Denge</span>
-                                <span class="user_email">cdenge22@canalblog.com</span>
-                            </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-success">DP</span>
-                            <div class="info">
-                                <span class="name">Darryl Pool</span>
-                                <span class="user_email">darrylPool@nbcnews.com</span>
-                            </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-warning">AC</span>
-                            <div class="info">
-                                <span class="name">Gay Bickford</span>
-                                <span class="user_email">gaybickford@gmail.com</span>
-                            </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-danger">AC</span>
-                            <div class="info">
-                                <span class="name">Anitra Coleridge</span>
-                                <span class="user_email">acoleridgey@nbcnews.com</span>
-                            </div>
-                        </a>
-                        <a class="user_item" href="#">
-                            <span class="img_text bg-primary">CD</span>
-                            <div class="info">
-                                <span class="name">Christina Denge</span>
-                                <span class="user_email">cdenge22@canalblog.com</span>
-                            </div>
-                        </a>
+                        </div>
+                        <div class="departments_list listTable">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Sr. no</th>
+                                        <th>Department</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="department_list">
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>
+                                            <h5>Legal</h5>
+                                            <span class="location">London</span>
+                                        </td>
+                                        <td class="actionBtn text-right">
+                                        <a class="btn theme-btn bg-danger" href="#"><i class="fa fa-trash-o"></i></a>
+                                        <a class="btn theme-btn editBtn ml-3" href="#"><i class="fa fa-pencil"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         
                         
                     </div>
                 </div>
-                <div class="col-md user_content_wrap">
+
+                <div class="col-md user_content_wrap open location-section common-sections" style="display: none;">
                     <a class="backList d-md-none"><i class="fa fa-angle-left"></i> Back</a>
+                    <form name="add_location_form" id="add_location_form" method="POST" action="libs/php/locationEditDelete.php">
+                        <input type="hidden" name="action" value="add_location">
+                        <div class="content createDepartment mb-4">
+                            <h3>Create Location:</h3>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="info-group">
+                                        <label class="label">Location name</label>
+                                        <input class="form-control" type="text" name="name" placeholder="Location name" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="editBtn mt-5">
+                                <a class="btn theme-btn bg-secondary" href="#">Cancel</a>
+                                <button class="btn theme-btn ml-4">Create Location</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form name="edit_location_form" id="edit_location_form" method="POST" action="libs/php/locationEditDelete.php">
+                        <input type="hidden" name="action" value="edit_location">
+                        <input type="hidden" name="location_id" id="location_id">
+                        <div class="content createDepartment mb-4">
+                            <h3>Edit Location:</h3>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="info-group">
+                                        <label class="label">Location name</label>
+                                        <input class="form-control" type="text" name="ename" id="ename" placeholder="Location name" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="editBtn mt-5">
+                                <button class="btn theme-btn ml-4">Update Location</button>
+                            </div>
+                        </div>
+                    </form>
+
                     <div class="content">
                         <div class="info_head row align-items-center mb-5">
-                            <div class="col-auto"><span class="img_text bg-secondary">AC</span></div>
+                            <div class="col-auto"><span class="img_text bg-info"><i class="fa fa-map-marker"></i></span></div>
                             <div class="col info">
-                                <h2 class="name">Anitra Coleridge</h2>
+                                <h2 class="name">Locations</h2>
+                            </div>
+                            <div class="col-auto">
+                                <a class="btn theme-btn add-loc" href="javascript:void(0);"><i class="fa fa-plus"></i> Add New</a>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h3>Employee job information</h3>
-                                <div class="info-group">
-                                    <label class="label">Department</label>
-                                    <div class="info-field">Research and Development</div>
-                                </div>
-                                <div class="info-group">
-                                    <label class="label">Location</label>
-                                    <div class="info-field">Paris</div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <h3>Contact</h3>
-                                <div class="info-group">
-                                    <label class="label">Email</label>
-                                    <div class="info-field">acoleridgey@nbcnews.com</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="editBtn text-md-right text-center mt-5">
-                            <a class="btn theme-btn bg-danger" href="#"><i class="fa fa-trash-o"></i> Delete</a>
-                            <a class="btn theme-btn editProfile ml-4" href="#"><i class="fa fa-pencil"></i> Edit Profile</a>
+                        <div class="location_list listTable">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Sr. no</th>
+                                    <th>Location</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody class="loc_list">
+                            </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    
-    
-    
-    
-    
-   
-
-    
 
   <script src="vendor/js/jquery-3.4.1.min.js"></script>
   <script src="vendor/js/popper.min.js"></script>
   <script src="vendor/js/bootstrap.min.js"></script>
   <script src="libs/js/script.js"></script>
-    
-  <script type="text/javascript">
-    jQuery(document).ready(function () {
-
-        $(".user_item").on('click', function(){
-           $(".user_content_wrap").addClass("open"); 
-        });
-        $(".backList").on('click', function(){
-           $(".user_content_wrap").removeClass("open"); 
-        });
-        
-        $(".search_toggle").on('click', function(){
-           $(".product_search_form").toggleClass("open"); 
-        });
-        
-    });
-  </script>
-    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
 </body>
 
 </html>

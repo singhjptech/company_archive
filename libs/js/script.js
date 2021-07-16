@@ -1,5 +1,17 @@
 
 $(document).ready(function() {
+    $(".user_item").on('click', function(){
+       $(".user_content_wrap").addClass("open"); 
+    });
+    $(".backList").on('click', function(){
+       $(".user_content_wrap").removeClass("open"); 
+    });
+    
+    $(".search_toggle").on('click', function(){
+       $(".product_search_form").toggleClass("open"); 
+    });
+
+        
     $('#add_emp_form').validate({ // initialize the plugin
         rules: {
             'first_name' : 'required',
